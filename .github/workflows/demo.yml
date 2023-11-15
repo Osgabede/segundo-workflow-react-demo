@@ -7,7 +7,7 @@ jobs:
       - name: coge mi codigo del repositorio
         uses: actions/checkout@v4.1.1
       - name: instalar nodejs
-        uses: actions/setup-node@v4.1.1
+        uses: actions/setup-node@v10.19.0
         with:
           node-version: '18'
       - name: instalar dependencias
