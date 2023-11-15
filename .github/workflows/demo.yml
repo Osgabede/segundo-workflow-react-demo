@@ -5,13 +5,27 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: coge mi codigo del repositorio
-        uses: actions/checkout@v4.1.1
+        uses: actions/checkout@v3
       - name: instalar nodejs
-        uses: actions/setup-node@v10.19.0
+        uses: actions/setup-node@v3
         with:
           node-version: '18'
       - name: instalar dependencias
         run: npm ci
       - name: ejecutar los test
         run: npm test
-            
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Get the code from the repository
+        uses: actions/checkout@v3
+      - name: Install NodeJS
+        uses: actions/setup-node@v3
+        with:
+          node-version: '18'
+      - name: Install dependencies
+        run: npm ci
+      - name: Build Project
+        run: npm run build
+      - name: Deploy
+        run: echo "Desplegando ..."
